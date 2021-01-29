@@ -65,3 +65,39 @@
 .initials:empty::after {
   content: "Unknown";
 }
+
+.contacts {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-evenly;
+  width: inherit;
+}
+
+.social-wrapper {
+  
+}
+
+.social-icon {
+  display: block;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.social-icon:hover,
+.social-icon:focus {
+  border: 1px solid red;
+  border-radius: 50%;
+}
+
+.icon-facebook{
+  color: blue;
+}
+
+.icon-twitter{
+
+}
+
+.icon-insta{
+
+}
