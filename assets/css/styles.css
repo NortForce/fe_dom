@@ -24,6 +24,7 @@
 .cardContainer {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   text-align: center;
   width: 320px;
 }
@@ -74,20 +75,18 @@
 }
 
 .social-wrapper {
-  
+  border-radius: 10px;
+  border: 1px solid lightgray;
 }
 
 .social-icon {
-  display: block;
   padding: 5px;
-  border-radius: 10px;
-  border: 1px solid black;
+  font-size: 32px;
 }
 
-.social-icon:hover,
-.social-icon:focus {
-  border: 1px solid red;
-  border-radius: 50%;
+.social-wrapper:hover,
+.social-wrapper:focus {
+  background-color: #e84545;
 }
 
 .icon-facebook{
@@ -95,9 +94,9 @@
 }
 
 .icon-twitter{
-
+  color: dodgerblue;
 }
 
-.icon-insta{
-
+.icon-instagram{
+  color: rgb(255, 166, 0);
 }
