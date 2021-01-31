@@ -10,25 +10,23 @@
 
   function createCard(data) {
     const {id,firstName, lastName, profilePicture, contacts} = data;
+    
+    const abbr = createAbbr(firstName, lastName);    
+    const fullName = getFullName(firstName, lastName);
 
-    let fullName = '';
-    if(firstName && lastName) {
-      fullName = `${firstName} ${lastName}`;
-    }
-
-    const abbr = createAbbr(data);    
-
-    const picture = createImage({classNames: ['cardImage'], attributes: {src: profilePicture, alt: fullName}, id: id});
-    const h3 = createElement('h3', {classNames: ['cardName'], textData: fullName});
-    const p = createElement('p', {classNames: ['cardDescription'], textData: `Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.`});
-
+    
+    const picture = createImage({classNames: ['card-image'], attributes: {src: profilePicture, alt: fullName}, id: id});
+    const h3 = createElement('h3', {classNames: ['card-name'], textData: fullName});
+    const h4 = createElement('h4', {classNames: ['job-position'], textData: `Some important position, probably`});
+    const p = createElement('p', {classNames: ['card-description'], textData: `Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.`});
+    
     const userContacts = createSocialLinks(contacts);
 
-    const cardImgWrap = createElement('div', {classNames: ['cardImageWrapper'], attributes: {id: `wrapper${id}`}},abbr, picture);
+    const cardImgWrap = createElement('div', {classNames: ['card-image-wrapper'], attributes: {id: `wrapper${id}`}},abbr, picture);
     cardImgWrap.style.backgroundColor = stringToColour(fullName);
-    const article = createElement('article', {classNames:['cardContainer']}, cardImgWrap, h3, p, userContacts);
+    const article = createElement('article', {classNames:['card-container']}, cardImgWrap, h3, h4, p, userContacts);
 
-    return createElement('li', {classNames: ["cardWrapper"]}, article);
+    return createElement('li', {classNames: ["card-wrapper"]}, article);
   }
 
   /*
@@ -44,7 +42,7 @@
  * @param {Array} options.attributes - array of tuples with pair [attribute, value]
  * @param {string} textData текстовая строка, находящаяся внутри элемента
  * @param {Node[]} children
- * @return {HTMLElement}
+ * @return {HTMLElement} 
  */
   function createElement(elementType, {classNames, onClick, attributes = {}, textData} , ...children) {
     const element = document.createElement(elementType);
