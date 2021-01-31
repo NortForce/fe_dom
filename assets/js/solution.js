@@ -1,8 +1,8 @@
-new URL('https://www.facebook.com/JasonStatham/');
-new Map()
-  .set('www.facebook.com', 'src_to_icon')
-  .set('www.facebook.com', 'src_to_icon')
-  .set('www.facebook.com', 'src_to_icon');
+  const faSites = new Map([
+    ['www.instagram.com',['fa-instagram', 'icon-instagram']],
+    ['www.facebook.com',['fa-facebook', 'icon-facebook']],
+    ['twitter.com',['fa-twitter', 'icon-twitter']],
+  ]);
 
   const container = document.getElementById('root');
   const cards = responseData.map((data) => createCard(data));
