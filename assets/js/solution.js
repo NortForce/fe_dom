@@ -112,6 +112,15 @@
   UTILITY
 */
 /**
+ * Функция для получения полного имени
+ * @param {string} firstName 
+ * @param {string} lastName 
+ * @return {string} 
+ */
+function getFullName (firstName, lastName) {
+  return (firstName || lastName) ? `${firstName} ${lastName}`.trim() : '';
+}
+/**
  * Функция получения инициалов
  * @param {string} firstName 
  * @param {string} lastName 
