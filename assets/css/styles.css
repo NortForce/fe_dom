@@ -9,27 +9,28 @@
   box-sizing: border-box;
 }
 
-.cardsContainer {
+.cards-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
 }
 
-.cardWrapper {
+.card-wrapper {
   display: flex;
   border: 2px solid lightgray;
   margin: 2rem 1rem;
 }
 
-.cardContainer {
+.card-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
 }
 
-.cardImageWrapper {
+.card-image-wrapper {
   position: relative;
   width: inherit;
   height: 320px;
@@ -44,7 +45,7 @@
   align-items: center;
 }
 
-.cardImage {
+.card-image {
   top: 0;
   bottom: 0;
   left: 0;
@@ -57,14 +58,34 @@
   object-position: center;
 }
 
-.cardName {
-  margin: 1rem 0;
+.card-name {
+  max-width: 90%;
+  margin: 1rem 5%;
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.cardName:empty::after,
+.card-description {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+
+}
+
+.card-name:empty::after,
 .initials:empty::after {
   content: "Unknown";
+}
+
+.job-position {
+  max-width: 90%;
+  margin: 0 5% 1rem;
+  font-size: 0.75rem;
+  color: red;
+  text-transform: uppercase;
 }
 
 .contacts {
@@ -82,7 +103,7 @@
 }
 
 .social-icon {
-  padding: 5px;
+  padding: 4px;
   font-size: 32px;
 }
 
@@ -101,4 +122,10 @@
 
 .icon-instagram{
   color: rgb(255, 166, 0);
+}
+
+.team-header {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
