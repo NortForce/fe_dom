@@ -61,11 +61,11 @@
   }
   /**
    * Функция создания элемента с инициалами
-   * @param {Object} name обьект с именем и фалилией
-   * @param {string} name.firstName
-   * @param {string} name.lastName
+   * @param {string} firstName
+   * @param {string} lastName
+   * @return {HTMLElement} div с инициалами
    */
-  function createAbbr({firstName, lastName}) {
+  function createAbbr(firstName, lastName) {
     const abbr = createElement('div', {classNames: ['initials']});
     abbr.append(document.createTextNode(getAbbr(firstName, lastName)));
     return abbr;
@@ -83,7 +83,7 @@
   /**
    * Функция обертка для создания группы социальных ссылок
    * @param {Array} contacts массив контактов
-   * @return элемент div с ссылками на все полученные соц сети
+   * @return {HTMLElement} элемент div с ссылками на все полученные соц сети
    */
   function createSocialLinks (contacts) {
     const linkHolder = [];
@@ -97,8 +97,10 @@
 
   /**
    * Функция-обертка для создания ссылки в соц-сети
-   * @param {Map} Map 
-   * @param {} Map. 
+   * @param {Map} map 
+   * @param {string} map.href 
+   * @param {Array} map.userClasses классы для ссылок
+   * @return {HTMLElement} ссылка на соц сеть
    */
   function createSocialLink ([href, userClasses]) {
     userClasses.unshift('fa', 'fa-fw', 'social-icon');
