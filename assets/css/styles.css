@@ -68,6 +68,7 @@
 }
 
 .card-description {
+  padding: 0 5px;
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 8;
@@ -81,11 +82,14 @@
 }
 
 .job-position {
-  max-width: 90%;
   margin: 0 5% 1rem;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: red;
   text-transform: uppercase;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 .contacts {
