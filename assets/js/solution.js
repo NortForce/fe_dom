@@ -11,8 +11,8 @@
   function createCard(data) {
     const {id,firstName, lastName, profilePicture, contacts} = data;
     
-    const abbr = createAbbr(firstName, lastName);    
     const fullName = getFullName(firstName, lastName);
+    const abbr = createAbbr(fullName);    
 
     
     const picture = createImage({classNames: ['card-image'], attributes: {src: profilePicture, alt: fullName}, id: id});
@@ -63,13 +63,12 @@
   }
   /**
    * Функция создания элемента с инициалами
-   * @param {string} firstName
-   * @param {string} lastName
+   * @param {string} fullName
    * @return {HTMLElement} div с инициалами
    */
-  function createAbbr(firstName, lastName) {
+  function createAbbr(fullName) {
     const abbr = createElement('div', {classNames: ['initials']});
-    abbr.append(document.createTextNode(getAbbr(firstName, lastName)));
+    abbr.append(document.createTextNode(returnAbbr(fullName)));
     return abbr;
   }
 
@@ -117,19 +116,26 @@
  * Функция для получения полного имени
  * @param {string} firstName 
  * @param {string} lastName 
- * @return {string} 
+ * @return {string} полное имя
  */
 function getFullName (firstName, lastName) {
   return (firstName || lastName) ? `${firstName} ${lastName}`.trim() : '';
 }
 /**
  * Функция получения инициалов
- * @param {string} firstName 
- * @param {string} lastName 
+ * @param {string} fullName 
  * @return {string} Инициалы или пустая строка
  */
-function getAbbr (firstName, lastName) {
-  return firstName && lastName? `${firstName.trim().charAt(0)} ${lastName.trim().charAt(0)}` : '';
+function returnAbbr (fullName) {
+  const [firstName, lastName ] =fullName.split(' ');
+  if(firstName && lastName) {
+    return `${firstName.trim().charAt(0)} ${lastName.trim().charAt(0)}`;
+  } else if (firstName && !lastName) {
+    return `${firstName.trim().charAt(0)}`;
+  } else if (!firstName && lastName) {
+    return `${lastName.trim().charAt(0)}`;
+  }
+  return '';
 }
 
 /**
