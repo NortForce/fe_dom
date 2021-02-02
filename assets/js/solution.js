@@ -34,15 +34,15 @@
   */
 
   /**
- *
- * @param {string} type
- * @param {object} options
+ * Создание HTML элемента
+ * @param {string} type тип создаваемого элемента
+ * @param {object} options обьект с параметрами создаваемого элемента
  * @param {string[]} options.classNames - css classes
- * @param {function} options.eventListeners - array of tuples with pair [event, function]
- * @param {Array} options.attributes - array of tuples with pair [attribute, value]
+ * @param {{event: function}} options.eventListeners - array of tuples with pair [event, function]
+ * @param {{string: string}} options.attributes - array of tuples with pair [attribute, value]
  * @param {string} textData текстовая строка, находящаяся внутри элемента
- * @param {Node[]} children
- * @return {HTMLElement} 
+ * @param {Node[]} children дочерние элементы 
+ * @return {HTMLElement} созданный элемент
  */
   function createElement(elementType, {classNames, eventListeners = {}, attributes = {}, textData} , ...children) {
     const element = document.createElement(elementType);
@@ -71,7 +71,14 @@
     abbr.append(document.createTextNode(returnAbbr(fullName)));
     return abbr;
   }
-
+  /**
+   * Функция создания картинки
+   * @param {object} options 
+   * @param {string[]} options.classNames массив с классами картинок 
+   * @param {{attribute:string}} options.attributes аттрибуты картинки
+   * @param {number} options.id номер картинки
+   * @return {HTMLElement} картинка
+   */
   function createImage(options) {
     const { classNames , attributes , id} = options;
     const img = createElement('img', {classNames, attributes});
@@ -83,7 +90,7 @@
 
   /**
    * Функция обертка для создания группы социальных ссылок
-   * @param {Array} contacts массив контактов
+   * @param {string[]} contacts массив контактов
    * @return {HTMLElement} элемент div с ссылками на все полученные соц сети
    */
   function createSocialLinks (contacts) {
@@ -98,9 +105,9 @@
 
   /**
    * Функция-обертка для создания ссылки в соц-сети
-   * @param {Map} map 
+   * @param {Map<string, string[]>} map 
    * @param {string} map.href 
-   * @param {Array} map.userClasses классы для ссылок
+   * @param {string[]} map.userClasses классы для ссылок
    * @return {HTMLElement} ссылка на соц сеть
    */
   function createSocialLink ([href, userClasses]) {
@@ -140,9 +147,11 @@ function returnAbbr (fullName) {
 
 /**
  * Функция создания связи между соц сетями и классами её гиперссылок 
- * @param {Array} contacts массив с ссылками соц-сеть
- * @param {Map} savedSocialSites ключ - домен соц-сети, значение - массив со строками классов
- * @return {Map} ключ - гиперссылка на соц-сеть, значение - массив со строками классов
+ * @param {string[]} contacts массив с ссылками соц-сеть
+ * @param {Map<string,string[]>} savedSocialSites ключ - домен соц-сети, значение - массив со строками классов
+ * @param {string} savedSocialSites.key  домен соц-сети
+ * @param {string[]} savedSocialSites.value  массив со строками классов
+ * @return {Map<string,string[]>} ключ - гиперссылка на соц-сеть, значение - массив со строками классов
  */
 function getSocialSites (contacts, savedSocialSites) {
   const socialSites = new Map();
