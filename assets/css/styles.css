@@ -95,7 +95,6 @@
 }
 
 .contacts {
-  /* margin: 1rem 0; */
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -106,10 +105,10 @@
   margin: 0.5rem;
   border-radius: 10px;
   border: 1px solid lightgray;
+  padding: 4px;
 }
 
 .social-icon {
-  padding: 4px;
   font-size: 32px;
 }
 
