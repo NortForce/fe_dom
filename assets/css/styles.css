@@ -117,6 +117,10 @@
 .social-wrapper:focus {
   background-color: #e84545;
 }
+.social-wrapper:hover > .icon-youtube,
+.social-wrapper:focus > .icon-youtube {
+  color: white;
+}
 
 .icon-facebook{
   color: blue;
@@ -124,6 +128,10 @@
 
 .icon-twitter{
   color: dodgerblue;
+}
+
+.icon-youtube {
+  color: crimson;
 }
 
 .icon-instagram{

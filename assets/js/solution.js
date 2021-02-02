@@ -2,6 +2,7 @@
     ['www.instagram.com',['fa-instagram', 'icon-instagram']],
     ['www.facebook.com',['fa-facebook', 'icon-facebook']],
     ['twitter.com',['fa-twitter', 'icon-twitter']],
+    ['www.youtube.com',['fa-youtube', 'icon-youtube']],
   ]);
 
   const container = document.getElementById('root');
