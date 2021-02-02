@@ -10,3 +10,6 @@ function stringToColour(str) {
   }
   return colour;
 }
+function changeColor() {
+  this.classList.toggle('card-selected');
+}
