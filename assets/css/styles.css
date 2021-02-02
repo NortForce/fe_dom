@@ -77,6 +77,8 @@
 }
 
 .card-name:empty::after,
+.job-position:empty::after,
+.card-description:empty::after,
 .initials:empty::after {
   content: "Unknown";
 }
