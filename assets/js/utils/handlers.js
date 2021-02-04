@@ -13,6 +13,14 @@ function addCelebritySelection() {
   const celebId = this.dataset.userId;
   if(!selectedCelebs.includes(celebId)) {
     selectedCelebs.push(celebId);
-    selectedCelebsList.append(createElement('li',{classNames: ['celeb'],attributes:{'data-celeb-id':celebId}}, celebrityFullName));
+    selectedCelebsList.append(createElement('li',{classNames: ['celeb'],eventListeners:{'click': removeCelebritySelection},attributes:{'data-celeb-id':celebId}}, celebrityFullName));
   }
+}
+
+function removeCelebritySelection() {
+  const celebId = this.dataset.celebId;
+  document.getElementById(`user${celebId}`).classList.remove('card-selected');
+  selectedCelebs.splice(selectedCelebs.indexOf(celebId), 1);
+  document.querySelector(`li[data-celeb-id="${celebId}"]`).remove();
+  
 }
