@@ -15,5 +15,5 @@ function createCard(data) {
   cardImgWrap.style.backgroundColor = stringToColour(fullName);
   const article = createElement('article', {classNames:['card-container']}, cardImgWrap, h3, h4, p, userContacts);
 
-  return createElement('li', {eventListeners: {'click':changeColor} ,classNames: ["card-wrapper"], attributes: {'data-user-id': id}}, article);
+  return createElement('li', {eventListeners: {'click':toggleCelebritySelection} ,classNames: ["card-wrapper"], attributes: {'data-user-id': id}}, article);
 }

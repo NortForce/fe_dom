@@ -1,6 +1,8 @@
 'use strict';
 
+const selectedCelebs = [];
 
+const selectedCelebsList = document.getElementById('selected-celebs');
 const container = document.getElementById('root');
 
 // fetch('http://192.168.1.148:3000/users')
