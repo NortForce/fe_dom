@@ -105,6 +105,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: inherit;
+  min-height: 60px;
 }
 
 .social-wrapper {
