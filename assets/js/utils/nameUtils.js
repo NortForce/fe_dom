@@ -5,7 +5,7 @@
    */
   function createAbbr(fullName) {
     const abbr = createElement('div', {classNames: ['initials']});
-    abbr.append(document.createTextNode(returnAbbr(fullName)));
+    abbr.append(document.createTextNode(getAbbr(fullName)));
     return abbr;
   }
 
@@ -23,7 +23,7 @@ function getFullName (firstName, lastName) {
  * @param {string} fullName 
  * @return {string} Инициалы или пустая строка
  */
-function returnAbbr (fullName) {
+function getAbbr (fullName) {
   const [firstName, lastName ] =fullName.split(' ');
   if(firstName && lastName) {
     return `${firstName.trim().charAt(0)} ${lastName.trim().charAt(0)}`;
