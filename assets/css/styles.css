@@ -152,3 +152,16 @@
   font-size: 2rem;
   font-weight: bold;
 }
+
+.selected-celebs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.celeb {
+  margin: 3px;
+  padding: 6px;
+  border: 1px solid red;
+  border-radius: 10px;
+}
