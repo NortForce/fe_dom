@@ -5,11 +5,10 @@
  * @param {string[]} options.classNames - css classes
  * @param {{event: function}} options.eventListeners - array of tuples with pair [event, function]
  * @param {{string: string}} options.attributes - array of tuples with pair [attribute, value]
- * @param {string} textData текстовая строка, находящаяся внутри элемента
  * @param {Node[]} children дочерние элементы 
  * @return {HTMLElement} созданный элемент
  */
-function createElement(elementType, {classNames, eventListeners = {}, attributes = {}, textData} , ...children) {
+function createElement(elementType, {classNames, eventListeners = {}, attributes = {}} , ...children) {
   const element = document.createElement(elementType);
 
   element.classList.add(...classNames);
@@ -20,9 +19,6 @@ function createElement(elementType, {classNames, eventListeners = {}, attributes
     element.addEventListener(event, func);
   }
 
-  if(textData) {
-    element.append(document.createTextNode(textData));
-  };
   element.append(...children);
   return element;
 }
