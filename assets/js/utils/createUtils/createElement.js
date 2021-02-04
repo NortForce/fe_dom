@@ -8,7 +8,7 @@
  * @param {Node[]} children дочерние элементы 
  * @return {HTMLElement} созданный элемент
  */
-function createElement(elementType, {classNames, eventListeners = {}, attributes = {}} , ...children) {
+function createElement(elementType='div', {classNames=[], eventListeners = {}, attributes = {}} , ...children) {
   const element = document.createElement(elementType);
 
   element.classList.add(...classNames);
