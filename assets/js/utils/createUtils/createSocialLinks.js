@@ -10,7 +10,7 @@
       if(SUPPORT_SOC_NET.has(hostname)) {
         const classes = SUPPORT_SOC_NET.get(hostname);
 
-        return createElement('a', {classNames:['social-wrapper'], attributes : {href: contact}},
+        return createElement('a', {eventListeners: {'click' : (e)=>{ e.stopPropagation();}},classNames:['social-wrapper'], attributes : {href: contact}},
           createElement('span', {classNames: classes})
         )
       }
